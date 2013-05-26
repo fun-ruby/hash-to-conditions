@@ -2,17 +2,17 @@ module HashToConditions
 
 class StringHelper
   @@operators = {
-        'eq' => ' = ',
-        'ne' => ' <> ',
-        'gt' => ' > ',
-        'ge' => ' >= ',
-        'lt' => ' < ',
-        'le' => ' <= ',
-        'like' => ' LIKE ',
-        'null' => ' IS NULL ',
-        'nnull' => ' IS NOT NULL ',
-        'in' => ' IN ',
-        'between' => ' BETWEEN '
+        'eq' => '=?',
+        'ne' => '<>?',
+        'gt' => '>?',
+        'ge' => '>=?',
+        'lt' => '<?',
+        'le' => '<=?',
+        'like' => ' LIKE ?',
+        'null' => ' IS NULL',
+        'nnull' => ' IS NOT NULL',
+        'in' => ' IN (?)',
+        'between' => ' (BETWEEN ? AND ?)'
       }
 
   #
