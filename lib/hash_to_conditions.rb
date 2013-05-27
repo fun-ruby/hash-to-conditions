@@ -1,3 +1,4 @@
+require 'ext/array'
 require 'ext/string'
 
 module HashToConditions

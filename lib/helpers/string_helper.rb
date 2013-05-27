@@ -19,7 +19,7 @@ class StringHelper
   # Returns a matching SQL operator for @string, or nil
   #
   def to_operator
-    @@operators[@string]
+    @@operators[@string.downcase]
   end
 
 
