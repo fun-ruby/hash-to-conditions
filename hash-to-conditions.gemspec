@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'hash-to-conditions'
-  s.version     = '0.3.0'
-  s.date        = '2013-05-28'
+  s.version     = '0.3.1'
+  s.date        = '2013-05-29'
   s.summary     = "Hash to conditions Array gem"
   s.description = "Transforms a given Hash into a conditions Array, for use with ActiveRecord find() or where() methods"
   s.authors     = ["Long On"]
