@@ -44,7 +44,7 @@ class TestOperators < Test::Unit::TestCase
   end
 
   def test_between
-    assert_equal ' (BETWEEN ? AND ?)', 'between'.to_operator
+    assert_equal ' BETWEEN ? AND ?', 'between'.to_operator
   end
 
   def test_undefined

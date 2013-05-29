@@ -3,7 +3,7 @@ module HashToConditions
 class ArrayHelper
 
   #
-  # Returns a condition array
+  # Returns a condition collection (array or hash)
   #
   def to_condition
     raise "bad_key_value_pair" unless @array.length == 2
@@ -15,9 +15,9 @@ class ArrayHelper
     operator = parts[1]
     value = @array.last
 
-    if 'AND' == field.upcase or 'OR' == field.upcase
-      # TODO - to_condition - pass 'AND'|'OR' pair to Hash
-      return {field => value}
+    if ['AND', 'OR'].index(field.upcase)
+      # handle nested condition
+      return {field.upcase => value}
     end
 
     unless operator
@@ -32,11 +32,12 @@ class ArrayHelper
     return  [field + mapped] if operator.index('null')
 
     # handle .in (?) or .between ? and ?
-    if 'in' == operator or 'between' == operator
+    if ['in', 'between'].index(operator)
       values = value.to_s.split(',').collect { | ea | ea.strip }
       if 'in' == operator
         result = [field + mapped, values]
       else
+        # between
         result = [field + mapped, values[0], values[1]]
       end
       return result

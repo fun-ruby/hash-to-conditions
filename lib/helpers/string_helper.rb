@@ -12,7 +12,7 @@ class StringHelper
         'null' => ' IS NULL',
         'nnull' => ' IS NOT NULL',
         'in' => ' IN (?)',
-        'between' => ' (BETWEEN ? AND ?)'
+        'between' => ' BETWEEN ? AND ?'
       }
 
   #

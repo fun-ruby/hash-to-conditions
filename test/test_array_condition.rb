@@ -105,7 +105,7 @@ class TestArrayCondition < Test::Unit::TestCase
   def test_between
     a = ['order_id.between', '4, 8'].to_condition
     assert_equal 3, a.length
-    assert_equal 'order_id (BETWEEN ? AND ?)', a[0]
+    assert_equal 'order_id BETWEEN ? AND ?', a[0]
     assert_equal '4', a[1]
     assert_equal '8', a[2]
   end
