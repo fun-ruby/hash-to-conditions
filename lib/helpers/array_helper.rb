@@ -6,13 +6,13 @@ class ArrayHelper
   # Returns a condition array
   #
   def to_condition
-    raise "Invalid key-value pair" unless @array.length == 2
-    raise "Bad condition field name" unless @array.first.kind_of?(String)
+    raise "bad_key_value_pair" unless @array.length == 2
 
-    parts = @array.first.split('.')
-    field = parts[0]
+    parts = @array.first.to_s.split('.')
+    raise "field_cannot_be_empty" if parts.empty?
+
+    field = parts[0].strip
     operator = parts[1]
-
     value = @array.last
 
     if 'AND' == field.upcase or 'OR' == field.upcase
@@ -26,7 +26,7 @@ class ArrayHelper
     end
     operator = operator.downcase
     mapped = operator.to_operator
-    raise "Unknown operator .#{operator}" unless mapped
+    raise "unknown_operator" unless mapped
 
     # handle .null or .nnull, suppress value
     return  [field + mapped] if operator.index('null')
