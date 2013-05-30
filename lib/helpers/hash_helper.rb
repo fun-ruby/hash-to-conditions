@@ -1,9 +1,35 @@
 module HashToConditions
 
+# This class performs the bulk of the work. It takes a Hash and return the fully
+# expanded Array condition.
+#
+# For example:
+#  > helper = HashHelper.new({'age.gt' => 18})
+#  > helper.to_conditions => ['(age>?)', 18] 
+#
+# Boolean *AND* and *OR* can be used to join multiple conditions.
+#
+# Examples:
+#
+#  > helper = HashHelper.new({'AND' => {'name' => 'Lou%', 'age.gt' => 18}})
+#  > helper.to_conditions => ['(name LIKE ? AND age>?)', 'Lou%', 18] 
+#
+#  > helper = HashHelper.new({'name.like' => 'Lou%', 'age.gt' => 18}) - boolean AND is implicit here
+#  > helper.to_conditions => ['(name LIKE ? AND age>?)', 'Lou%', 18] 
+#
+#  > helper = HashHelper.new({'OR' => {'name.like' => 'Lou%', 'age.gt' => 18}})
+#  > helper.to_conditions => ['(name LIKE ? OR age>?)', 'Lou%', 18] 
+#
+# Nested conditions are also supported:
+#
+#  > nested_h = {'name' => 'Lou%', 'age.gt' => 18}
+#  > helper = HashHelper.new({'OR' => {'AND' => nested_h, 'salary.between' => '50k, 100k'}})
+#  > helper.to_conditions => ['((name LIKE ? AND age>?) OR salary BETWEEN ? AND ?)', 'Lou%', 18, '50k', '100k'] 
+#
+
 class HashHelper
 
-  #
-  # Returns a complete condition array
+  # Returns a fully expaned condition array
   #
   def to_conditions
     raise "empty_condition" if @hash.empty?
@@ -22,8 +48,11 @@ class HashHelper
 
   protected
 
+    # Performs the translation. Parse @hash, construct the condition @result_s string using boolean
+    # operator @join_s. Collect @result_s and condition values in @result_a. An exception is raised,
+    # *nested_too_deep_or_cyclic*, when nesting exceeds 42 recursive calls.
     def parse(hash, join_s, result_s, result_a, nest_lev=0)
-      raise "nested_too_deep_or_cyclic" unless nest_lev < 32
+      raise "nested_too_deep_or_cyclic" unless nest_lev < 42
 
       result_s << '('
       count = hash.length
@@ -46,6 +75,7 @@ class HashHelper
       result_s << ')'
     end
 
+   # Creates a new instance
     def initialize(hash)
       @hash = hash
     end

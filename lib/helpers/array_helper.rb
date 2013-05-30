@@ -1,10 +1,20 @@
 module HashToConditions
 
+# This helper class takes a Hash key-value pair (an Array) and return the expanded form condition.
+#
+# For example:
+#  > helper = ArrayHelper.new(['age.gt', 18])
+#  > helper.to_condition => ['age>?', 18] 
+
 class ArrayHelper
 
+  # Returns an expanded form condition or a Hash if it is a nested condition.
   #
-  # Returns a condition collection (array or hash)
+  # An exception is raised when specific validation fails. Possible exception messages are:
   #
+  # * '*bad_key_value_pair*' - array must have exactly two (2) elements
+  # * '*field_cannot_be_empty*' - a field name must be specified
+  # * '*unknown_operator*' - operator tag is not supported
   def to_condition
     raise "bad_key_value_pair" unless @array.length == 2
 
@@ -49,7 +59,8 @@ class ArrayHelper
 
   protected
 
-    def initialize(array)
+   # Creates a new instance
+   def initialize(array)
       @array = array
     end
 end

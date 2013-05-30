@@ -1,6 +1,7 @@
 # hash-to-conditions
 
-Transforms a given Hash into a conditions Array, for use with ActiveRecord `find()` or `where()` methods
+This gem provides an easy way to build ActiveRecord Array conditions
+directly from a Hash.
 
 
 
