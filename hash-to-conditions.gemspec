@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'hash-to-conditions'
-  s.version     = '0.3.2'
-  s.date        = '2013-05-29'
-  s.summary     = "Hash to conditions Array gem"
+  s.version     = '0.3.3'
+  s.date        = '2013-05-31'
+  s.summary     = "Converts a Hash to ActiveRecord Array conditions"
   s.description = "The HashToConditions gem provides an easy way to build ActiveRecord Array conditions directly from a Hash."
   s.authors     = ["Long On"]
   s.email       = 'on.long.on@gmail.com'
@@ -14,5 +14,5 @@ Gem::Specification.new do |s|
                    "lib/ext/string.rb",
                    "lib/ext/hash.rb"
                   ]
-  s.homepage    = 'http://rubygems.org/gems/hash-to-conditions'
+  s.homepage    = 'https://rubygems.org/gems/hash-to-conditions'
 end

@@ -75,7 +75,7 @@ require 'ext/string'
 #  > h = {'OR' => {'name.like' => 'Lou%', 'age.gt' => 18}}
 #  > h.to_conditions => ['(name LIKE ? OR age>?)', 'Lou%', 18] 
 #
-# Hash keys are not limited to String. Symbol keys are also supported so :'name.eq' is also a valid key.
+# Hash keys are not limited to String. Symbol keys are also supported so :'name.eq' is also valid.
 #
 # == Implicit Tags
 #
@@ -93,7 +93,7 @@ require 'ext/string'
 # Note the *AND* boolean operator is omitted in the hashes above. It also is an implicit
 # operator, except when used as a nested condition.
 #
-# Having these as implicits seem natural and can help reduce a few extra key-strokes.
+# Having these as implicits seem natural and can help save a few extra key-strokes.
 #
 # == Nested Conditions
 #
@@ -107,7 +107,7 @@ require 'ext/string'
 #
 # However, one can easily get into trouble nesting with hashes. It is easy to create many nestings or
 # a cyclic one. Therefore nesting is limited to a maximum of 42 within a root hash. An
-# exception with *nested_too_deep_or_cyclic* message is raised when this happens.
+# exception with *nested_too_deep_or_cyclic* message is raised when this limit is exceeded.
 #
 # <br />
 # ---
