@@ -15,4 +15,6 @@ Gem::Specification.new do |s|
                    "lib/ext/hash.rb"
                   ]
   s.homepage    = 'https://rubygems.org/gems/hash-to-conditions'
+  s.has_rdoc    = true
+  s.license     = 'MIT'
 end
