@@ -3,6 +3,15 @@
 This ruby gem provides an easy way to build ActiveRecord Array conditions
 directly from a Hash.
 
+[![Gem Version](https://badge.fury.io/rb/hash-to-conditions.png)](http://badge.fury.io/rb/hash-to-conditions)
+[![Code Climate](https://codeclimate.com/github/fun-ruby/hash-to-conditions.png)](https://codeclimate.com/github/fun-ruby/hash-to-conditions)
+[![Build Status](https://travis-ci.org/fun-ruby/hash-to-conditions.png?branch=master)](https://travis-ci.org/fun-ruby/hash-to-conditions)
+
+### Requirements
+
+  * Ruby 1.9.2 and above
+  * Ruby 1.8.7 may work although Hash insertion order is not preserved
+
 ### Install
 
 ```
