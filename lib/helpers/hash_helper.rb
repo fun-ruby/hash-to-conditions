@@ -35,7 +35,7 @@ class HashHelper
     raise "empty_condition" if @hash.empty?
     result_s = ''
     result_a = []
-    join_s = @hash.first.first
+    join_s = @hash.first.first.to_s
     if ['AND', 'OR'].index(join_s.upcase)
       parse(@hash.first.last, join_s.upcase, result_s, result_a)
     else

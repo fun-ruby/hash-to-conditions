@@ -21,7 +21,7 @@ class ArrayHelper
     parts = @array.first.to_s.split('.')
     raise "field_cannot_be_empty" if parts.empty?
 
-    field = parts[0].strip
+    field = parts[0].strip.to_s
     operator = parts[1]
     value = @array.last
 
@@ -34,7 +34,7 @@ class ArrayHelper
       # handle implicit .eq ({'name' => 'value'}) or .like ({'name' => 'value%'})
       operator = value.to_s.index('%') ? 'like' : 'eq'
     end
-    operator = operator.downcase
+    operator = operator.to_s.downcase
     mapped = operator.to_operator
     raise "unknown_operator" unless mapped
 
