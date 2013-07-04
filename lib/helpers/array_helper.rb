@@ -41,28 +41,36 @@ class ArrayHelper
     # handle .null or .nnull, suppress value
     return  [field + mapped] if operator.index('null')
 
-    # handle .in (?) or .between ? and ?
-    if ['in', 'between'].index(operator)
-      values = value.to_s.split(',').collect { | ea | ea.strip }
-      if 'in' == operator
-        result = [field + mapped, values]
-      else
-        # between
-        result = [field + mapped, values[0], values[1]]
-      end
-      return result
-    end
+    return [field + mapped, value] unless ['in', 'between'].index(operator)
 
-    [field + mapped, value]
+    handle_in_between(operator, field, mapped, value)
   end
 
 
   protected
 
-   # Creates a new instance
-   def initialize(array)
+    # Creates a new instance
+    def initialize(array)
       @array = array
     end
+
+
+  private
+
+    # Handle .in (?) or .between ? and ?
+    # Return an expanded Array condition
+    #
+    def handle_in_between(operator, field, mapped_operator, csv)
+      values = csv.to_s.split(',').collect { | ea | ea.strip }
+      if 'in' == operator
+        result = [field + mapped_operator, values]
+      else
+        # between
+        result = [field + mapped_operator, values[0], values[1]]
+      end
+      result
+    end
+
 end
 
 end
