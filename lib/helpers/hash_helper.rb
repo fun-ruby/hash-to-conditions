@@ -56,8 +56,8 @@ class HashHelper
 
       result_s << '('
       count = hash.length
-      hash.each_pair { | pair |
-        arr = pair.to_condition
+      hash.each_pair { | k, v |
+        arr = [k, v].to_condition
         if arr.kind_of?(Hash)
           # handle nested condition
           parse(arr.first.last, arr.first.first, result_s, result_a, 1+nest_lev)
