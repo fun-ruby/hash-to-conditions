@@ -44,23 +44,23 @@ Below is a list of supported tags:
  </tr>
  <tr>
  <td style=\"border: 1px solid \#999; padding-left: 4px\">.ne</td>
- <td style=\"border: 1px solid \#999; padding-left: 4px\">\<\></td>
+ <td style=\"border: 1px solid \#999; padding-left: 4px\">&lt;&gt;</td>
  </tr>
  <tr>
  <td style=\"border: 1px solid \#999; padding-left: 4px\">.gt</td>
- <td style=\"border: 1px solid \#999; padding-left: 4px\">\></td>
+ <td style=\"border: 1px solid \#999; padding-left: 4px\">&gt;</td>
  </tr>
  <tr>
  <td style=\"border: 1px solid \#999; padding-left: 4px\">.ge</td>
- <td style=\"border: 1px solid \#999; padding-left: 4px\">\>=</td>
+ <td style=\"border: 1px solid \#999; padding-left: 4px\">&gt;=</td>
  </tr>
  <tr>
  <td style=\"border: 1px solid \#999; padding-left: 4px\">.lt</td>
- <td style=\"border: 1px solid \#999; padding-left: 4px\">\<</td>
+ <td style=\"border: 1px solid \#999; padding-left: 4px\">&lt;</td>
  </tr>
  <tr>
  <td style=\"border: 1px solid \#999; padding-left: 4px\">.le</td>
- <td style=\"border: 1px solid \#999; padding-left: 4px\">\<=</td>
+ <td style=\"border: 1px solid \#999; padding-left: 4px\">&lt;=</td>
  </tr>
  <tr>
  <td style=\"border: 1px solid \#999; padding-left: 4px\">.like</td>
